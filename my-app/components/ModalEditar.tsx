@@ -1,43 +1,57 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View, TextInput } from 'react-native';
+import {
+    Alert,
+    Modal,
+    StyleSheet,
+    Text,
+    Pressable,
+    View,
+    TextInput,
+} from 'react-native';
 
-
-
-export default function ModalEditar({ modalVisible, setModalVisible, salvarNoBanco, item, setItemAlterar }) {
-
+export default function ModalEditar({
+    modalVisible,
+    setModalVisible,
+    salvarNoBanco,
+    item,
+    setItemAlterar,
+}) {
     const [nome, setNome] = React.useState(item.nome);
     const [ingredientes, setIngredientes] = React.useState(item.quantidade);
     const [preco, setPreco] = React.useState(item.periodicidade);
-    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState(item.informacoesAdicionais);
+    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState(
+        item.informacoesAdicionais,
+    );
 
-    React.useEffect(() => {console.log(item)}, [])
-    const salvar = async() => {
-        console.log(nome)
-        console.log(ingredientes)
-        console.log(preco)
-        console.log(informacoesAdicionais)
-        
-       await salvarNoBanco(item.id,{
-            id:item.id,
-            nome, 
+    React.useEffect(() => {
+        console.log(item);
+    }, []);
+    const salvar = async () => {
+        console.log(nome);
+        console.log(ingredientes);
+        console.log(preco);
+        console.log(informacoesAdicionais);
+
+        await salvarNoBanco(item.id, {
+            id: item.id,
+            nome,
             ingredientes,
             preco,
-            informacoesAdicionais
-        })
+            informacoesAdicionais,
+        });
 
-        setNome('')
-        setIngredientes('')
-        setPreco('')
-        setInformacoesAdicionais('')
+        setNome('');
+        setIngredientes('');
+        setPreco('');
+        setInformacoesAdicionais('');
 
-
-        setModalVisible(false)
-    }
+        setModalVisible(false);
+    };
 
     const cancelar = () => {
-        setItemAlterar(null)
-        setModalVisible(false)
-    }
+        setItemAlterar(null);
+        setModalVisible(false);
+    };
 
     return (
         <Modal
@@ -46,56 +60,56 @@ export default function ModalEditar({ modalVisible, setModalVisible, salvarNoBan
             visible={modalVisible}
             onRequestClose={() => {
                 Alert.alert('Modal has been closed.');
-                setModalVisible(false)
-            }}>
+                setModalVisible(false);
+            }}
+        >
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>Dados do item</Text>
 
                     <TextInput
                         style={styles.input}
-                        placeholder='Nome'
+                        placeholder="Nome"
                         onChangeText={setNome}
                         value={nome}
-
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Ingredientes'
+                        placeholder="Ingredientes"
                         onChangeText={setIngredientes}
                         value={ingredientes}
-
                     />
-
 
                     <TextInput
                         style={styles.input}
-                        placeholder='R$'
+                        placeholder="R$"
                         onChangeText={setPreco}
                         value={preco}
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Informações adicionais'
+                        placeholder="Informações adicionais"
                         onChangeText={setInformacoesAdicionais}
                         value={informacoesAdicionais}
                     />
 
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
-                        onPress={salvar}>
+                        onPress={salvar}
+                    >
                         <Text style={styles.textStyle}>Salvar</Text>
                     </Pressable>
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
-                        onPress={cancelar}>
+                        onPress={cancelar}
+                    >
                         <Text style={styles.textStyle}>Cancelar</Text>
                     </Pressable>
                 </View>
             </View>
         </Modal>
-    )
-};
+    );
+}
 
 const styles = StyleSheet.create({
     centeredView: {
@@ -145,8 +159,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderColor: '#dadada',
-        backgroundColor: '#f4f4f4'
+        backgroundColor: '#f4f4f4',
     },
-
 });
-

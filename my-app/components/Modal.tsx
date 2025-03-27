@@ -1,36 +1,46 @@
 import React, { useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View, TextInput } from 'react-native';
-import { launchImageLibrary } from "react-native-image-picker";
+import {
+    Alert,
+    Modal,
+    StyleSheet,
+    Text,
+    Pressable,
+    View,
+    TextInput,
+} from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
 
-
-export default function ModalAdicionar({ modalVisible, setModalVisible, salvarNoBanco }) {
-
+export default function ModalAdicionar({
+    modalVisible,
+    setModalVisible,
+    salvarNoBanco,
+}) {
     const [nome, setNome] = React.useState('');
     const [ingredientes, setIngredientes] = React.useState('');
     const [preco, setPreco] = React.useState('');
-    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState('');
+    const [informacoesAdicionais, setInformacoesAdicionais] =
+        React.useState('');
 
-    const salvar = async() => {
-        console.log(nome)
-        console.log(ingredientes)
-        console.log(preco)
-        console.log(informacoesAdicionais)
-        
-       await salvarNoBanco({
-            nome, 
+    const salvar = async () => {
+        console.log(nome);
+        console.log(ingredientes);
+        console.log(preco);
+        console.log(informacoesAdicionais);
+
+        await salvarNoBanco({
+            nome,
             ingredientes,
             preco,
-            informacoesAdicionais
-        })
+            informacoesAdicionais,
+        });
 
-        setNome('')
-        setIngredientes('')
-        setPreco('')
-        setInformacoesAdicionais('')
+        setNome('');
+        setIngredientes('');
+        setPreco('');
+        setInformacoesAdicionais('');
 
-
-        setModalVisible(false)
-    }
+        setModalVisible(false);
+    };
 
     return (
         <Modal
@@ -39,55 +49,56 @@ export default function ModalAdicionar({ modalVisible, setModalVisible, salvarNo
             visible={modalVisible}
             onRequestClose={() => {
                 Alert.alert('Modal has been closed.');
-                setModalVisible(false)
-            }}>
+                setModalVisible(false);
+            }}
+        >
             <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                     <Text style={styles.modalText}>Cadastro de item</Text>
 
                     <TextInput
                         style={styles.input}
-                        placeholder='Nome'
+                        placeholder="Nome"
                         onChangeText={setNome}
                         value={nome}
-
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Ingredientes'
+                        placeholder="Ingredientes"
                         onChangeText={setIngredientes}
                         value={ingredientes}
                     />
 
-
                     <TextInput
                         style={styles.input}
-                        placeholder='R$'
+                        placeholder="R$"
                         onChangeText={setPreco}
                         value={preco}
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Informações adicionais'
+                        placeholder="Informações adicionais"
                         onChangeText={setInformacoesAdicionais}
                         value={informacoesAdicionais}
                     />
 
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
-                        onPress={salvar}>
+                        onPress={salvar}
+                    >
                         <Text style={styles.textStyle}>Salvar</Text>
                     </Pressable>
                     <Pressable
                         style={[styles.button, styles.buttonClose]}
-                        onPress={() => setModalVisible(false)}>
+                        onPress={() => setModalVisible(false)}
+                    >
                         <Text style={styles.textStyle}>Cancelar</Text>
                     </Pressable>
                 </View>
             </View>
         </Modal>
-    )
-};
+    );
+}
 
 const styles = StyleSheet.create({
     centeredView: {
@@ -137,8 +148,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         borderColor: '#dadada',
-        backgroundColor: '#f4f4f4'
+        backgroundColor: '#f4f4f4',
     },
-
 });
-

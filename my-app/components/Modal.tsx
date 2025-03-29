@@ -8,7 +8,6 @@ import {
     View,
     TextInput,
 } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
 
 export default function ModalAdicionar({
     modalVisible,

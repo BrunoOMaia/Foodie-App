@@ -1,7 +1,7 @@
 import Button from '@/components/Button';
 import Modal from '@/components/Modal';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import CustomCard from '@/components/Card';

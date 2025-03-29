@@ -1,6 +1,4 @@
-import * as React from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
-import { Avatar, Button, Card, Text } from 'react-native-paper';
+import { Button, Card, Text } from 'react-native-paper';
 
 export default function CustomCard({ item, deletarCard, id, selecionarItem }) {
     return (

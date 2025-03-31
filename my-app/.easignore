@@ -21,11 +21,5 @@ expo-env.d.ts
 
 .idea/
 
-.eas/
-
-google-services.json
 /ios
 /android
-.env.local
-bun.lock
-foodie-notifications-firebase-adminsdk-fbsvc-*.json

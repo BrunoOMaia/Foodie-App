@@ -10,6 +10,17 @@ import {
     GestureHandlerRootView,
     ScrollView,
 } from 'react-native-gesture-handler';
+import * as Notifications from 'expo-notifications';
+
+async function sendNotification(title: string, body: string = '') {
+    await Notifications.scheduleNotificationAsync({
+        content: {
+            title: title,
+            body: body
+        },
+        trigger: null
+    });
+}
 
 export default function HomeScreen() {
     const [modalVisible, setModalVisible] = React.useState(false);
@@ -49,15 +60,23 @@ export default function HomeScreen() {
         buscar();
     }, [recarregar]);
     const deletarCard = async (id: string) => {
+        const itemStr = await AsyncStorage.getItem(id);
+        if (itemStr === null) {
+            console.error('Item não encontrado com id:', id);
+            return;
+        }
+        const item = JSON.parse(itemStr);
         await AsyncStorage.removeItem(id);
+        await sendNotification('Item Excluido', item.nome);
         buscarNoBanco();
     };
 
     const editarNoBanco = async (id: string, item: any) => {
         try {
             await AsyncStorage.setItem(id, JSON.stringify(item));
+            await sendNotification('Item Editado', item.nome);
         } catch (e) {
-            // read key error
+            console.error("Error: ", e);
         }
         buscarNoBanco();
     };
@@ -73,6 +92,7 @@ export default function HomeScreen() {
             console.log(keys);
             item.id = (keys.length + 1).toString();
             await AsyncStorage.setItem(item.id, JSON.stringify(item));
+            await sendNotification('Item Criado', item.nome);
         } catch (e) {
             // read key error
         }

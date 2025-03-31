@@ -10,10 +10,12 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { router } from 'expo-router';
+import { useNotification } from '@/context/NotificationContext';
 
 export default function HomeScreen() {
     const [email, setEmail] = React.useState('');
     const [senha, setSenha] = React.useState('');
+    const { expoPushToken, notification, error } = useNotification();
 
     const fazerLogin = () => {
         if (email == 'login@foodieapp.com' && senha == '123456') {
@@ -37,6 +39,7 @@ export default function HomeScreen() {
             <ThemedView style={styles.elementosLogin}>
                 <ThemedView style={styles.titleContainer}>
                     <ThemedText type="title">Faça login</ThemedText>
+                    <ThemedText type="subtitle">Token: {expoPushToken}</ThemedText>
                 </ThemedView>
 
                 <ThemedView style={styles.loginContainer}>

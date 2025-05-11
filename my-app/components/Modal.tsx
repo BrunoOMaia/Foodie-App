@@ -17,8 +17,8 @@ export default function ModalAdicionar({
     const [nome, setNome] = React.useState('');
     const [ingredientes, setIngredientes] = React.useState('');
     const [preco, setPreco] = React.useState('');
-    const [informacoesAdicionais, setInformacoesAdicionais] =
-        React.useState('');
+    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState('');
+    const [imagem, setImagem] = useState('');
 
     const salvar = async () => {
         console.log(nome);
@@ -31,13 +31,14 @@ export default function ModalAdicionar({
             ingredientes,
             preco,
             informacoesAdicionais,
+            imagem,
         });
 
         setNome('');
         setIngredientes('');
         setPreco('');
         setInformacoesAdicionais('');
-
+        setImagem('');
         setModalVisible(false);
     };
 
@@ -80,6 +81,13 @@ export default function ModalAdicionar({
                         onChangeText={setInformacoesAdicionais}
                         value={informacoesAdicionais}
                     />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="URL da imagem"
+                        onChangeText={setImagem}
+                        value={imagem}
+                    />
+
 
                     <Pressable
                         style={[styles.button, styles.buttonClose]}

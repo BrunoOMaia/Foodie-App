@@ -19,9 +19,8 @@ export default function ModalEditar({
     const [nome, setNome] = React.useState(item.nome);
     const [ingredientes, setIngredientes] = React.useState(item.quantidade);
     const [preco, setPreco] = React.useState(item.periodicidade);
-    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState(
-        item.informacoesAdicionais,
-    );
+    const [informacoesAdicionais, setInformacoesAdicionais] = React.useState(item.informacoesAdicionais,);
+    const [imagem, setImagem] = useState('');
 
     React.useEffect(() => {
         console.log(item);
@@ -31,6 +30,7 @@ export default function ModalEditar({
         console.log(ingredientes);
         console.log(preco);
         console.log(informacoesAdicionais);
+        console.log(imagem);
 
         await salvarNoBanco(item.id, {
             id: item.id,
@@ -38,13 +38,14 @@ export default function ModalEditar({
             ingredientes,
             preco,
             informacoesAdicionais,
+            imagem,
         });
 
         setNome('');
         setIngredientes('');
         setPreco('');
         setInformacoesAdicionais('');
-
+        setImagem('')
         setModalVisible(false);
     };
 
@@ -91,6 +92,12 @@ export default function ModalEditar({
                         placeholder="Informações adicionais"
                         onChangeText={setInformacoesAdicionais}
                         value={informacoesAdicionais}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="URL da imagem"
+                        onChangeText={setImagem}
+                        value={imagem}
                     />
 
                     <Pressable

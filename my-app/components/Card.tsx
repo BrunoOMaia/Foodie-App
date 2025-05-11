@@ -1,4 +1,6 @@
 import { Button, Card, Text } from 'react-native-paper';
+import { Image } from 'react-native';
+
 
 export default function CustomCard({ item, deletarCard, id, selecionarItem }) {
     return (
@@ -10,6 +12,12 @@ export default function CustomCard({ item, deletarCard, id, selecionarItem }) {
                 </Text>
                 <Text variant="bodyMedium">R$ {item.preco}</Text>
                 <Text variant="bodyMedium">{item.informacoesAdicionais}</Text>
+                <Image
+                    source={{ uri: item.imagem }}
+                    style={{ width: '70%', height: 200, borderRadius: 10, marginBottom: 10, marginTop: 20, marginLeft: 50 }}
+                    resizeMode="cover"
+                />
+
             </Card.Content>
 
             <Card.Actions>

@@ -1,6 +1,6 @@
-# 🍽️ Foodie App – Gerenciador de Cardápio
+# 🍽️ FOODIE APP - GERENCIADOR DE CARDÁPIO (Projeto integrador: análise de soluções integradas para organizações)
 
-Um app simples para cadastrar, editar e visualizar itens de um cardápio com imagem e descrição completa. Os dados são armazenados localmente no dispositivo.
+Um app para cadastrar, editar e visualizar itens de um cardápio com imagem e descrição completa.
 
 ## Vídeo de demonstração: 
 
@@ -19,6 +19,22 @@ focada exclusivamente no cadastro de itens de um cardápio.
 
 Como todos os dados necessários estão relacionados diretamente ao item do cardápio, não há necessidade de múltiplas tabelas.
 Além disso, a aplicação utiliza o AsyncStorage, que funciona como um banco de dados local e não relacional, armazenando cada item como um objeto em formato JSON.
+
+## Participantes (Grupo 38)
+
+- VINICIUS ARAUJO MENDES SANTOS
+ 
+- LUCAS BORGES SILVA
+  
+- SARAH LAYANE RODRIGUES PEREIRA DA SILVA
+
+- GUILHERME MAX PEREIRA
+
+- BRUNO OLIVEIRA MAIA
+
+- JULIANO RAFAEL SARRECCHIA
+
+- PAULO VITOR FERREIRA GONCALVES PIVOTTO
 
 
 ## **FUNCIONALIDADES** 

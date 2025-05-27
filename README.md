@@ -4,11 +4,14 @@ Um app para cadastrar, editar e visualizar itens de um cardápio com imagem e de
 
 ## Vídeo de demonstração: 
 
-- htttpsdsadawfwaf
+- https://www.youtube.com/watch?v=Vrx8vLsPjJs
 
 ## Landingpage do projeto:
 
 - https://lucasbors.github.io/foodie-app/#contato
+
+(repositório da landing page: https://github.com/lucasbors/foodie-app)
+
 
 ## Modelo DER: 
 
@@ -120,7 +123,7 @@ Dessa forma, cada item é exibido em um card com:
 
 ### Clone o repositório
 
-git clone https://github.com/seuusuario/foodie-app.git
+git clone [link do repositório]
 
 ### Acesse o diretório
 
